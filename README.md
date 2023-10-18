@@ -1,24 +1,27 @@
-# README
+# TestGuru
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Описание проекта
 
-Things you may want to cover:
+TestGuru - приложение для создания, управления и прохождения различных тестов.
 
-* Ruby version
+## Сущности проекта
 
-* System dependencies
+- **Тест**: Набор вопросов по определенной теме.
+- **Вопрос**: Элемент в тесте, который предлагает пользователю ответ.
+- **Ответ**: Возможный вариант ответа на вопрос.
 
-* Configuration
+## Конфигурация
 
-* Database creation
+- Часовой пояс: Moscow
+- Язык: ru
 
-* Database initialization
+## Версионирование приложения
 
-* How to run the test suite
+Мы следуем принципам [SemVer](https://semver.org) для версионирования нашего приложения. 
+Текущая версия приложения доступна в `config/initializers/version.rb`.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Статические страницы
 
-* Deployment instructions
+- [О проекте](/about)
+- [Об авторе](/about/author)
 
-* ...
