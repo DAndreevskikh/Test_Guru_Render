@@ -1,0 +1,12 @@
+<h1>Новый вопрос</h1>
+
+<%= form_with model: [@test, @question] do |form| %>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+
+  <p>
+    <%= form.submit "Создать вопрос" %>
+  </p>
+<% end %>
