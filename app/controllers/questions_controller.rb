@@ -22,9 +22,8 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    test_id = @question.test_id
     @question.destroy
-    redirect_to test_questions_path(test_id), notice: 'Вопрос был удален.'
+    redirect_to test_questions_path(@question.test_id), notice: 'Вопрос был удален.'
   end
 
   private
