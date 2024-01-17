@@ -1,0 +1,6 @@
+<% form_url = @question.persisted? ? question_path(@question) : test_questions_path(@test) %>
+<%= form_with model: @question, url: form_url, local: true do |form| %>
+  <%= form.label :body %>
+  <%= form.text_field :body %>
+  <%= form.submit %>
+<% end %>

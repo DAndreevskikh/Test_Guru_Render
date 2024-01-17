@@ -1,0 +1,8 @@
+<h1>Список тестов</h1>
+<ul>
+  <% @tests.each do |test| %>
+    <li>
+      <%= link_to test.title, test_path(test) %> - <%= test.questions.count %> вопрос(ов)
+    </li>
+  <% end %>
+</ul>
