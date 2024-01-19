@@ -1,8 +1,18 @@
-<%= link_to 'Назад ко всем тестам', tests_path %><br>
-<%= link_to 'Вернуться к списку вопросов', test_questions_path(@test) %>
-
 <h1><%= @test.title %></h1>
+
 <h2>Вопросы:</h2>
-<% @questions.each do |question| %>
-  <%= render 'questions/question', question: question %>
-<% end %>
+
+<ul>
+  <% @questions.each do |question| %>
+    <li>
+      <%= link_to question.body, question_path(question) %>
+      <%= link_to 'Редактировать', edit_question_path(question) %>
+      <%= form_tag(question_path(question), method: :delete) do %>
+        <%= submit_tag('Удалить', data: { confirm: "Вы уверены?" }) %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Создать новый вопрос', new_test_question_path(@test) %>
+<%= link_to 'Назад ко всем тестам', tests_path %>

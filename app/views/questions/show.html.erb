@@ -1,12 +1,9 @@
-<%= link_to 'Назад к списку вопросов', test_questions_path(@question.test) %>
+<%= link_to 'Назад к тесту', test_path(@question.test) %>
 
 <h1>Вопрос:</h1>
 <p><%= @question.body %></p>
 
-<%= link_to 'Создать новый вопрос', new_test_question_path(@question.test) %>
-
+<%= link_to 'Редактировать', edit_question_path(@question) %>
 <%= form_tag(question_path(@question), method: :delete) do %>
-  <%= submit_tag('Удалить вопрос', data: { confirm: "Вы уверены?" }) %>
+  <%= submit_tag('Удалить', data: { confirm: "Вы уверены?" }) %>
 <% end %>
-
-<%= link_to 'Назад к списку вопросов', test_questions_path(@question.test) %>
