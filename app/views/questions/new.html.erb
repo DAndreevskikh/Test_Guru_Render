@@ -1,3 +1,4 @@
 <h1><%= question_header(@test, @question) %></h1>
-<%= render 'form', test: @test, question: @question %>
-<%= link_to 'Назад к списку вопросов', test_questions_path(@test) %>
+<% form_model = [@test, @question] %>
+<%= render 'form', form_model: form_model %>
+<%= link_to 'Назад к тесту', test_path(@test) %>

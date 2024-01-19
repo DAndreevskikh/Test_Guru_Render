@@ -2,17 +2,7 @@
 
 <h2>Вопросы:</h2>
 
-<ul>
-  <% @questions.each do |question| %>
-    <li>
-      <%= link_to question.body, question_path(question) %>
-      <%= link_to 'Редактировать', edit_question_path(question) %>
-      <%= form_tag(question_path(question), method: :delete) do %>
-        <%= submit_tag('Удалить', data: { confirm: "Вы уверены?" }) %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<%= render @questions %>
 
 <%= link_to 'Создать новый вопрос', new_test_question_path(@test) %>
 <%= link_to 'Назад ко всем тестам', tests_path %>
