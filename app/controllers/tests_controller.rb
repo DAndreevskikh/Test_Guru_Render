@@ -1,8 +1,8 @@
 class TestsController < ApplicationController
-  before_action :set_test, only: %i[show edit update destroy]
+  before_action :set_test, only: %i[show start edit update destroy]
 
   def index
-    @tests = Test.all
+   @tests = Test.all
   end
 
   def show
@@ -15,6 +15,7 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
+
     if @test.save
       redirect_to @test
     else
@@ -22,9 +23,11 @@ class TestsController < ApplicationController
     end
   end
 
+  def edit; end
+
   def update
     if @test.update(test_params)
-      redirect_to @test
+      redirect_to @test, notice: 'Тест успешно обновлен.'
     else
       render :edit
     end
@@ -32,7 +35,13 @@ class TestsController < ApplicationController
 
   def destroy
     @test.destroy
-    redirect_to tests_path
+    redirect_to tests_path, notice: 'Тест успешно удален.'
+  end
+
+  def start
+    @user = User.first
+    @user.tests.push(@test)
+    redirect_to @user.tests_passing(@test)
   end
 
   private
@@ -42,6 +51,6 @@ class TestsController < ApplicationController
   end
 
   def test_params
-    params.require(:test).permit(:title, :category_id, :level)
+    params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 end

@@ -1,3 +1,10 @@
-<li>
-  <%= link_to test.title, test_path(test) %> - <%= test.questions.count %> вопрос(ов)
-</li>
+<tr>
+  <td><%= link_to test.title, test_path(test) %></td>
+  <td><%= test.level %></td>
+  <td><%= test.category.name %></td>
+  <td><%= test.author.name %></td>
+  <td>
+    <%= link_to 'Редактировать', edit_test_path(test) %> |
+    <%= link_to 'Удалить', test_path(test), method: :delete, data: { confirm: 'Вы уверены?' } %>
+  </td>
+</tr>

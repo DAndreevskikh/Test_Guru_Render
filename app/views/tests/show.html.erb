@@ -1,8 +1,18 @@
-<h1><%= @test.title %></h1>
+<h1>Тест: <%= @test.title %></h1>
 
 <h2>Вопросы:</h2>
 
-<%= render @questions %>
+<table>
+  <tr>
+    <th>№</th>
+    <th>Текст вопроса</th>
+    <th>Действия</th>
+  </tr>
+
+  <% @test.questions.each_with_index do |question, index| %>
+    <%= render 'questions/question', question: question, question_index: index %>
+  <% end %>
+</table>
 
 <%= link_to 'Создать новый вопрос', new_test_question_path(@test) %>
 <%= link_to 'Назад ко всем тестам', tests_path %>
