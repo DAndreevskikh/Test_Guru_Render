@@ -6,7 +6,9 @@ class TestsController < ApplicationController
   end
 
   def show
-    @questions = @test.questions
+    @questions_with_index = @test.questions.each_with_index.map do |question, index|
+    { question: question, index: index }
+   end
   end
 
   def new
