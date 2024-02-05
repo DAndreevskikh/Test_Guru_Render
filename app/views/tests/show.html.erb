@@ -9,7 +9,7 @@
     <th>Действия</th>
   </tr>
 
-  <%= render partial: 'questions/question', collection: @questions_with_index, as: :question_with_index %>
+  <%= render @test.questions %>
 </table>
 
 <%= link_to 'Создать новый вопрос', new_test_question_path(@test) %>

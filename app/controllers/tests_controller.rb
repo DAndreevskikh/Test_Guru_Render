@@ -1,15 +1,12 @@
 class TestsController < ApplicationController
-  before_action :set_test, only: %i[show start edit update destroy]
+  before_action :set_test, only: %i[show edit update destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
-   @tests = Test.all
+    @tests = Test.all
   end
 
-  def show
-    @questions_with_index = @test.questions.each_with_index.map do |question, index|
-    { question: question, index: index }
-   end
-  end
+  def show; end
 
   def new
     @test = Test.new
@@ -17,9 +14,8 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
-
     if @test.save
-      redirect_to @test
+      redirect_to tests_path, notice: 'Тест успешно создан.'
     else
       render :new
     end
@@ -29,7 +25,7 @@ class TestsController < ApplicationController
 
   def update
     if @test.update(test_params)
-      redirect_to @test, notice: 'Тест успешно обновлен.'
+      redirect_to tests_path, notice: 'Тест успешно обновлен.'
     else
       render :edit
     end
@@ -40,12 +36,6 @@ class TestsController < ApplicationController
     redirect_to tests_path, notice: 'Тест успешно удален.'
   end
 
-  def start
-    @user = User.first
-    @user.tests.push(@test)
-    redirect_to @user.tests_passing(@test)
-  end
-
   private
 
   def set_test
@@ -54,5 +44,9 @@ class TestsController < ApplicationController
 
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :author_id)
+  end
+
+  def rescue_with_test_not_found
+    render plain: 'Тест не найден'
   end
 end

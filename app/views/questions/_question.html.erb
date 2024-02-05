@@ -1,8 +1,8 @@
 <tr>
-  <td><%= question_with_index[:index] + 1 %></td>
-  <td><%= question_with_index[:question].body %></td>
+  <td><%= question_counter + 1 %></td>
+  <td><%= question.body %></td>
   <td>
-    <%= link_to 'Редактировать', edit_question_path(question_with_index[:question]) %>
-    <%= button_to 'Удалить', question_path(question_with_index[:question]), method: :delete, data: { confirm: 'Вы уверены?' } %>
+    <%= link_to 'Редактировать', edit_question_path(question) %> |
+    <%= link_to 'Удалить', question_path(question), method: :delete, data: { confirm: 'Вы уверены?' } %>
   </td>
 </tr>
