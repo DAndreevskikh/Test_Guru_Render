@@ -15,7 +15,7 @@ class TestsController < ApplicationController
   def create
     @test = Test.new(test_params)
     if @test.save
-      redirect_to tests_path, notice: 'Тест успешно создан.'
+      redirect_to @test, notice: 'Тест успешно создан.'
     else
       render :new
     end
@@ -25,7 +25,7 @@ class TestsController < ApplicationController
 
   def update
     if @test.update(test_params)
-      redirect_to tests_path, notice: 'Тест успешно обновлен.'
+      redirect_to @test, notice: 'Тест успешно обновлен.'
     else
       render :edit
     end
