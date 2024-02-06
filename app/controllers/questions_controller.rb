@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.build(question_params)
     if @question.save
-      redirect_to test_path(@test), notice: 'Вопрос создан'
+      redirect_to @question, notice: 'Вопрос создан'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to test_path(@question.test), notice: 'Вопрос обновлен'
+      redirect_to @question, notice: 'Вопрос обновлен'
     else
       render :edit
     end
