@@ -2,4 +2,4 @@
 
 <%= render 'form', form_model: [@test, @question] %>
 
-<%= link_to 'Назад к тесту', test_path(@test) %>
+<%= link_to 'Назад', test_path(@question.test) %>
