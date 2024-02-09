@@ -2,6 +2,15 @@
 <p>
   <%= @question.body %>
 </p>
+
+<h2>Вопросы</h2>
+
+<%= link_to 'Новый вопрос', new_question_answer_path(@question) %>
+
+<ol>
+  <%= render @question.answers %>
+</ol>
+
 <p>
   <%= link_to 'Редактировать', edit_question_path(@question) %> |
   <%= link_to 'Удалить', question_path(@question), method: :delete, data: { confirm: 'Вы уверены?' } %>

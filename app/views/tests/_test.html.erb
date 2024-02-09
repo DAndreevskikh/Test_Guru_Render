@@ -5,7 +5,9 @@
   <td><%= test.author.name %></td>
   <td><%= test.questions.count %></td>
   <td>
+    <%= link_to 'Показать', test_path(test) %> |
     <%= link_to 'Редактировать', edit_test_path(test) %> |
-    <%= link_to 'Удалить', test_path(test), method: :delete, data: { confirm: 'Вы уверены?' } %>
+    <%= link_to 'Удалить', test_path(test), method: :delete, data: { confirm: 'Вы уверены?' } %> |
   </td>
+   <td><%= button_to 'Начать', start_test_path(test) %></td> 
 </tr>
