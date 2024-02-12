@@ -6,6 +6,8 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
 
+  SUCCESS_THRESHOLD = 85
+
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
@@ -20,7 +22,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    success_rate >= success_threshold
+    success_rate >= SUCCESS_THRESHOLD
   end
 
   def current_question_number
@@ -43,7 +45,6 @@ class TestPassage < ApplicationRecord
 
   def correct_answer?(answer_ids)
     return false unless answer_ids
-
     correct_answers.ids.sort == answer_ids.map(&:to_i).sort
   end
 
@@ -53,9 +54,5 @@ class TestPassage < ApplicationRecord
 
   def next_question
     test.questions.order(:id).where('id > ?', current_question.id).first
-  end
-
-  def success_threshold
-    85
   end
 end
