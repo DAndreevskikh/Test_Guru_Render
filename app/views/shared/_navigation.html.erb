@@ -1,0 +1,7 @@
+<% if logged_in? %>
+  <div>Привет, <%= current_user.name %> <%= link_to 'Guru', root_path %>!</div>
+  <%= link_to 'Выход', logout_path, method: :delete %>
+<% else %>
+  <%= link_to 'Регистрация', signup_path %>
+  <%= link_to 'Вход', login_path %>
+<% end %>
