@@ -1,0 +1,18 @@
+<h1>Вопрос:</h1>
+<p>
+  <%= @question.body %>
+</p>
+
+<h2>Ответы</h2>
+
+<%= link_to 'Новый ответ', new_admin_question_answer_path(@question) %>
+
+<ol>
+  <%= render @question.answers %>
+</ol>
+
+<p>
+  <%= link_to 'Редактировать', edit_admin_question_path(@question) %> |
+  <%= link_to 'Удалить', admin_question_path(@question), method: :delete, data: { confirm: 'Вы уверены?' } %> |
+  <%= link_to 'Назад к тесту', admin_test_path(@question.test) %> 
+</p>
