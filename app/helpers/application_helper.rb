@@ -7,9 +7,10 @@ module ApplicationHelper
     link_to repo, "https://github.com/#{author}/#{repo}", target: '_blank', rel: 'noopener'
   end
 
-  def flash_message(tag, key, css_class)
-    return unless flash[key]
+  def flash_message(type, tag: :p)
+    message = flash[type]
+    return if message.blank?
 
-    content_tag(tag, flash[key], class: css_class)
+    content_tag tag, message, class: "flash #{type}"
   end
 end

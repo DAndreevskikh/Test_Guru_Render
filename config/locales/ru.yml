@@ -1,2 +1,25 @@
 ru:
-  hello: "Привет"
+  activerecord:
+    attributes:
+      user:
+        email: "Электронная почта"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        name: "Псевдоним"
+        first_name: "Имя"
+        last_name: "Фамилия"
+  errors:
+    messages:
+      blank: "не может быть пустым"
+      invalid: "недопустимое значение"
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Сохранить изменения"
+      question:
+        create: "Создать вопрос"
+        update: "Сохранить изменения"
+      answer:
+        create: "Создать ответ"
+        update: "Сохранить изменения"

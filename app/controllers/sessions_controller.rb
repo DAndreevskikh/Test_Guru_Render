@@ -1,20 +1,12 @@
-class SessionsController < ApplicationController
-  def new; end
-
+class SessionsController < Devise::SessionsController
   def create
-    user = User.find_by(email: params[:email])
-
-    if user&.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to cookies.delete(:past_url) || root_path
+    self.resource = warden.authenticate!(auth_options)
+    if resource
+      set_flash_message!(:notice, :signed_in, name: resource.first_name) unless resource.is_a?(Admin)
+      sign_in(resource_name, resource)
+      respond_with resource, location: after_sign_in_path_for(resource)
     else
-      flash.now[:alert] = 'Неверный email или пароль.'
-      render :new
+      redirect_to new_session_path(resource_name)
     end
-  end
-
-  def destroy
-    session.delete(:user_id)
-    redirect_to root_path, notice: 'Вы вышли из системы!'
   end
 end

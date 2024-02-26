@@ -1,4 +1,12 @@
 class User < ApplicationRecord
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :trackable,
+         :confirmable
+
   has_many :user_tests, dependent: :destroy
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
@@ -6,8 +14,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :name, presence: true
-
-  has_secure_password
+  validates :first_name, :last_name, presence: true
 
   def tests_by_level(level)
     tests.where(level: level)
