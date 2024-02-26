@@ -1,5 +1,5 @@
  class Admin::TestsController < Admin::BaseController
-    before_action :set_test, only: %i[show edit update destroy start]
+    before_action :set_test, only: %i[show edit update destroy]
     rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
     def index
@@ -13,7 +13,7 @@
     end
 
     def create
-      @test = Test.new(test_params.merge(author_id: current_user.id))
+      @test = current_user.created_tests.build(test_params)
 
       if @test.save
         redirect_to [:admin, @test], notice: 'Тест успешно создан.'
@@ -44,7 +44,7 @@
     end
 
     def test_params
-      params.require(:test).permit(:title, :level, :category_id, :author_id)
+      params.require(:test).permit(:title, :level, :category_id)
     end
 
     def set_user
@@ -55,3 +55,4 @@
       render plain: 'Тест не найден'
     end
   end
+  
