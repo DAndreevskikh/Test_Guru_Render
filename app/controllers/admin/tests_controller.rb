@@ -1,58 +1,54 @@
- class Admin::TestsController < Admin::BaseController
-    before_action :set_test, only: %i[show edit update destroy]
-    rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+class Admin::TestsController < Admin::BaseController
+  before_action :set_test, only: %i[show edit update destroy]
 
-    def index
-      @tests = Test.all
-    end
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
-    def show; end
+  def index
+    @tests = Test.all
+  end
 
-    def new
-      @test = Test.new
-    end
+  def show; end
 
-    def create
-      @test = current_user.created_tests.build(test_params)
+  def new
+    @test = Test.new
+  end
 
-      if @test.save
-        redirect_to [:admin, @test], notice: 'Тест успешно создан.'
-      else
-        render :new
-      end
-    end
+  def create
+    @test = current_user.created_tests.build(test_params)
 
-    def edit; end
-
-    def update
-      if @test.update(test_params)
-        redirect_to [:admin, @test], notice: 'Тест успешно обновлен.'
-      else
-        render :edit
-      end
-    end
-
-    def destroy
-      @test.destroy
-      redirect_to admin_tests_path, notice: 'Тест успешно удален.'
-    end
-
-    private
-
-    def set_test
-      @test = Test.find(params[:id])
-    end
-
-    def test_params
-      params.require(:test).permit(:title, :level, :category_id)
-    end
-
-    def set_user
-      @user = User.first
-    end
-
-    def rescue_with_test_not_found
-      render plain: 'Тест не найден'
+    if @test.save
+      redirect_to admin_test_path(@test), notice: t('.success')
+    else
+      render :new
     end
   end
-  
+
+  def edit; end
+
+  def update
+    if @test.update(test_params)
+      redirect_to admin_test_path(@test), notice: t('.success')
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @test.destroy
+    redirect_to admin_tests_path, notice: t('.success')
+  end
+
+  private
+
+  def set_test
+    @test = Test.find(params[:id])
+  end
+
+  def test_params
+    params.require(:test).permit(:title, :level, :category_id)
+  end
+
+  def rescue_with_test_not_found
+    render plain: t('.question_not_found')
+  end
+end

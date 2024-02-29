@@ -3,28 +3,28 @@
 
   <div class="field">
     <p>
-      <%= form.label :title, 'Название теста:' %><br>
+      <%= form.label :title %><br>
       <%= form.text_field :title, id: :test_title %>
     </p>
   </div>
 
   <div class="field">
     <p>
-      <%= form.label :level, 'Уровень:' %><br>
+      <%= form.label :level %><br>
       <%= form.number_field :level, id: :test_level %>
     </p>
   </div>
 
   <div class="field">
     <p>
-      <%= form.label :category_id, 'Категория:' %><br>
-      <%= form.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+      <%= form.label :category_id %><br>
+      <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: t('helpers.select.prompt') } %>
     </p>
   </div>
 
   <div class="field">
     <p>
-      <%= form.label :author_id, 'Автор:' %><br>
+      <%= form.label :author_id %><br>
       <%= form.collection_select :author_id, User.all, :id, :name, selected: @test.author_id || current_user.id, include_blank: true %>
     </p>
   </div>

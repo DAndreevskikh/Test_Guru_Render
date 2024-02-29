@@ -1,17 +1,17 @@
-<h1>Тест: <%= @test.title %></h1>
-<p> Уровень: <%= @test.level %></p>
+<h1><%= t('.header', title: @test.title) %></h1>
+<p><%= t('.level', level: @test.level) %></p>
 
-<h2>Вопросы</h2>
+<h2><%= t('.questions') %></h2>
 
 <table>
   <tr>
-    <th>№</th>
-    <th>Текст вопроса</th>
-    <th>Действия</th>
+    <th><%= t('.number') %></th> 
+    <th><%= t('.title') %></th>
+    <th><%= t('.actions') %></th>
   </tr>
   <%= render @test.questions %>
 </table>
 
-<%= link_to 'Создать новый вопрос', new_admin_test_question_path(@test) %> |
-<%= link_to 'Редактировать', edit_admin_test_path(@test) %> |
-<%= link_to 'Назад ко всем тестам', admin_tests_path %>
+<%= link_to t('.new_question'), new_admin_test_question_path(@test) %> |
+<%= link_to t('edit'), edit_admin_test_path(@test) %> |
+<%= link_to t('back'), admin_tests_path %>

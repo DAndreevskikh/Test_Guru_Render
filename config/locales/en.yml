@@ -1,33 +1,120 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  helpers:
+    select:
+      prompt: "Please select:"
+    submit:
+      test:
+        create: "Create Test"
+        update: "Update Test"
+      question:
+        create: "Create Question"
+        update: "Update Question"
+      answer:
+        create: "Create Answer"
+        update: "Update Answer"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+        author_id: "Author"
+      question:
+        body: "Question Content"
+      answer:
+        body: "Answer"
+        correct: "Correct"
+        
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected" 
+
+  test_passages:
+    take_test:
+      header: "Take the test: %{title}"
+      question: "Question %{current} of %{total}:"
+      next: "Next"
+    result:
+      header: "The test %{title} was successfully completed!"
+      your_result: "Your result:"
+      success: "Congratulations! You have successfully passed the test."
+      fail: "Unfortunately, the test was not passed. Please try again."
+      all_tests: "All Tests"
+    of: "of"
+
+  tests:
+    index:
+      header: "Available Tests"
+      title: "Title"
+      level: "Level"
+      count: "Number of Tests"
+      author: "Author"
+      questions_count: "Number of Questions"
+      actions: "Actions"    
+
+  admin:
+    tests:
+      new:
+        header: "Create Test"
+      create:
+        success: "Test successfully created!"
+      update:
+        success: "Test successfully updated!"
+      destroy:
+        success: "Test successfully deleted!"
+      edit:
+        header: "Edit %{title} test"
+      index:
+        header: "Available Tests"
+        title: "Title"
+        level: "Level"
+        category: "Category"
+        author: "Author"
+        questions_count: "Number of Questions"
+        actions: "Actions"
+        new_test: "New Test"
+      show:
+        header: "Test %{title}"
+        level: "Level: %{level}"
+        questions: "Questions"
+        number: "No."
+        title: "Title"
+        actions: "Actions"
+        new_question: "New Question"
+
+    answers:
+      show:
+        header: "Question"
+        answer: "Answer"
+        correct: "Correct"
+      create:
+        success: "Answer successfully created."
+      update:
+        success: "Answer successfully updated!"
+      destroy:
+        success: "Answer successfully deleted!"
+      new:
+        header: "New Answer"
+      edit:
+        header: "Edit Answer"
+
+    questions:
+      create:
+        success: "Question successfully created."
+      update:
+        success: "Question successfully updated!"
+      destroy:
+        success: "Question successfully deleted!"
+      edit:
+        header: "Edit question %{title}"
+      show:
+        header: "Question"
+        answers: "Answers"
+
+  test_mailer:
+    completed_test:
+      subject: "You have just completed the test!"
+
+  confirmations:
+    are_you_sure: "Are you sure?"

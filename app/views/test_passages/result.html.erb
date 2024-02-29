@@ -1,11 +1,11 @@
-<h1>Результаты теста <%= @test_passage.test.title %></h1>
+<h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
-<p>Ваш результат: <span style="color: <%= @test_passage.success? ? 'green' : 'red' %>;"><%= @test_passage.success_rate %>%</span></p>
+<p><%= t('.your_result') %> <span style="color: <%= @test_passage.success? ? 'green' : 'red' %>;"><%= @test_passage.success_rate %>%</span></p>
 
 <% if @test_passage.success? %>
-  <p>Поздравляем! Вы успешно прошли тест.</p>
+  <p><%= t('.result.success') %></p>
 <% else %>
-  <p>К сожалению, тест не пройден. Попробуйте еще раз.</p>
+  <p><%= t('result.fail') %></p>
 <% end %>
 
-<%= link_to 'Все тесты', tests_path %>
+<%= link_to t('.result.all_tests'), tests_path %>

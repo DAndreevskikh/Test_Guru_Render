@@ -1,18 +1,18 @@
-<h1>Вопрос:</h1>
+<h1><%= t('.header') %>:</h1>
 <p>
   <%= @question.body %>
 </p>
 
-<h2>Ответы</h2>
+<h2><%= t('.answers') %></h2>
 
-<%= link_to 'Новый ответ', new_admin_question_answer_path(@question) %>
+<%= link_to t('new_answer'), new_admin_question_answer_path(@question) %>
 
 <ol>
   <%= render @question.answers %>
 </ol>
 
 <p>
-  <%= link_to 'Редактировать', edit_admin_question_path(@question) %> |
-  <%= link_to 'Удалить', admin_question_path(@question), method: :delete, data: { confirm: 'Вы уверены?' } %> |
-  <%= link_to 'Назад к тесту', admin_test_path(@question.test) %> 
+  <%= link_to t('edit'), edit_admin_question_path(@question) %> |
+  <%= link_to t('delete'), admin_question_path(@question), method: :delete, data: { confirm: t('confirmations.are_you_sure') } %> |
+  <%= link_to t('back'), admin_test_path(@question.test) %> 
 </p>

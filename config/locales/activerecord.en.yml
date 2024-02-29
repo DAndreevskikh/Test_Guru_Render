@@ -1,0 +1,39 @@
+en:
+  activerecord:
+    models:
+      test: "Test"
+      category: "Category"
+      test_passage: "Test Passage"
+      answer: "Answer"
+
+    attributes:
+      test:
+        title: "Title"
+        category: "Category"
+      answer:
+        body: "Answer Text"
+        correct: 
+          label: "Correct Answer?"
+          values:
+            'true': "Yes"
+            'false': "No"            
+      test_passage:
+        correct_answers: "Correct Answers"
+
+      user:
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+        name: "Nickname"
+        first_name: "First Name"
+        last_name: "Last Name"
+  
+
+  errors:
+    messages:
+      blank: "can't be blank"
+      invalid: "is invalid"
+      required: "is required"
+      test_not_found: "Test not found"
+      question_not_found: "Question not found"
+      no_answer: "You did not select an answer"
