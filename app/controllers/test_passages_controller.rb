@@ -2,6 +2,8 @@ class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[show update result]
 
+  rescue_from NoMethodError, with: :rescue_with_no_method_error
+
   def show; end
 
   def result; end
@@ -21,5 +23,9 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def rescue_with_no_method_error
+    render plain: t('.no_answer')
   end
 end

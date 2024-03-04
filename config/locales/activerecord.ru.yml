@@ -1,0 +1,39 @@
+ru:
+  activerecord:
+    models:
+      test: "Тест"
+      category: "Категория"
+      test_passage: "Прохождение теста"
+      answer: "Ответ"
+
+    attributes:
+      test:
+        title: "Название"
+        category: "Категория"
+      answer:
+        body: "Текст ответа"
+        correct: 
+          label: "Правильный ответ?"
+          values:
+            'true': "Да"
+            'false': "Нет"            
+      test_passage:
+        correct_answers: "Правильные ответы"
+
+      user:
+        email: "Электронная почта"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        name: "Псевдоним"
+        first_name: "Имя"
+        last_name: "Фамилия"
+  
+
+  errors:
+    messages:
+      blank: "не может быть пустым"
+      invalid: "недопустимое значение"
+      required: "обязательно для заполнения"
+      test_not_found: "Тест не найден"
+      question_not_found: "Вопрос не найден"
+      no_answer: "Вы не выбрали ответ"

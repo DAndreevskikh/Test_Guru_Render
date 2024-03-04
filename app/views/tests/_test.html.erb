@@ -5,5 +5,5 @@
   <td><%= test.author.name %></td>
   <td><%= test.questions.count %></td>
   
-   <td><%= button_to 'Начать', start_test_path(test) %></td> 
+   <td><%= link_to t('start'), start_test_path(test) %></td> 
 </tr>
