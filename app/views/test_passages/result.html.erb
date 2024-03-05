@@ -1,11 +1,18 @@
-<h1><%= t('.header', title: @test_passage.test.title) %></h1>
-
-<p><%= t('.your_result') %> <span style="color: <%= @test_passage.success? ? 'green' : 'red' %>;"><%= @test_passage.success_rate %>%</span></p>
-
-<% if @test_passage.success? %>
-  <p><%= t('.result.success') %></p>
-<% else %>
-  <p><%= t('result.fail') %></p>
-<% end %>
-
-<%= link_to t('.result.all_tests'), tests_path %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+      <h1 class="mb-4"><%= t('.header', title: @test_passage.test.title) %></h1>
+      <p class="mb-3"><%= t('.your_result') %> <span class="<%= @test_passage.success? ? 'text-success' : 'text-danger' %>"><%= @test_passage.success_rate %>%</span></p>
+      <% if @test_passage.success? %>
+        <div class="alert alert-success" role="alert">
+          <%= t('test_passages.result.success') %>
+        </div>
+      <% else %>
+        <div class="alert alert-danger" role="alert">
+          <%= t('test_passages.result.fail') %>
+        </div>
+      <% end %>
+      <%= link_to t('test_passages.result.all_tests'), tests_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

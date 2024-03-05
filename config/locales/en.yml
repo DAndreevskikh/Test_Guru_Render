@@ -36,7 +36,7 @@ en:
       question: "Question %{current} of %{total}:"
       next: "Next"
     result:
-      header: "The test %{title} was successfully completed!"
+      header: "The test %{title} was completed!"
       your_result: "Your result:"
       success: "Congratulations! You have successfully passed the test."
       fail: "Unfortunately, the test was not passed. Please try again."

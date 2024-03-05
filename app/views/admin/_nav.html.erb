@@ -1,8 +1,10 @@
-<div class="nav nav-admin">
-	<span calss="nav-admin title">Панель Администратора</span>
-
-	<div class="nav-admin user">
-		Добро пожаловать, <b class="nav-admin user-email"><%= current_user.email %></b>! |
-		<%= link_to 'Выход', destroy_user_session_path, method: :delete, data: { confirm: 'Вы уверены?' }%>
-	</div>
-</div>
+<nav class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+    <%= link_to 'TestGuru', root_path, class: 'navbar-brand text-white' %>
+    <span class="navbar-text text-white">
+      Добро пожаловать, <b class="nav-admin user-email"><%= current_user.email %></b> Guru |
+      <%= link_to 'Админка', admin_tests_path, class: 'text-decoration-none text-white' %> |
+      <%= link_to 'Выход', destroy_user_session_path, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'text-decoration-none text-white' %>
+    </span>
+  </div>
+</nav>

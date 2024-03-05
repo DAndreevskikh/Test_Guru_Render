@@ -1,16 +1,25 @@
-<h1><%= t('.header') %></h1>
+<div class="container mt-3">
+  <h1 class="text-center mb-4"><%= t('.header') %></h1>
 
-<table>
-  <tr>
-    <th><%= t('.title') %></th>
-    <th><%= t('.level') %></th>
-    <th><%= t('.category') %></th> 
-    <th><%= t('.author') %></th> 
-    <th><%= t('.questions_count') %></th>
-    <th colspan="4"><%= t('.actions') %></th>
-  </tr>
-  
-  <%= render @tests %>
-</table>
+  <div class="table-responsive">
+    <table class="table table-hover table-centered">
+      <thead class="thead-light">
+        <tr>
+          <th><%= t('.title') %></th>
+          <th><%= t('.level') %></th>
+          <th><%= t('.category') %></th>
+          <th><%= t('.author') %></th>
+          <th><%= t('.questions_count') %></th>
+          <th colspan="4"><%= t('.actions') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @tests %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<p><%= link_to t('new_test'), new_admin_test_path, class: "some-css-class" %></p>
+<div class="container text-center mt-3">
+  <%= link_to t('.new_test'), new_admin_test_path, class: "btn btn-primary some-css-class" %>
+</div>

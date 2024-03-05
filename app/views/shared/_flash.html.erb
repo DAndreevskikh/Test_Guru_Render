@@ -1,0 +1,9 @@
+<div class="row justify-content-center">
+  <div class="col col-md-6">
+    <% flash.each do |type, message| %>
+      <div class="alert <%= 'alert-warning' if type.to_sym == :alert %> <%= 'alert-primary' if type.to_sym == :notice %> text-center <%= 'mx-auto' if type.to_sym == :alert || type.to_sym == :notice %>" role="alert">
+        <%= message %>
+      </div>
+    <% end %>
+  </div>
+</div>
