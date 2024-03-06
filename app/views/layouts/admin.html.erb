@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Панель Администратора | TestGuru</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-ti-fit=no">
+  <title>Панель Администратора | TestGuru</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
-
 <body>
+  <div class="container-fluid">
     <%= render 'admin/nav' %>
     
-    <%= flash_message(:notice) %>
+    <div class="mt-3">
+        <%= flash_messages %>
+    </div>
 
-    <%= yield %>
+    <div>
+      <%= yield %>
+    </div>
+  </div>
 
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <%= render 'layouts/footer' %>
+  <%= render 'layouts/footer' %>
 </body>
 </html>

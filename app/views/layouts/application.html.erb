@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>TestGuru</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-ti-fit=no">
+    <title>TestGuru</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+  </head>
 
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-  <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
-</head>
-<body>
-  <%= render 'shared/navigation' %>
-
-  <%= yield %>
-
-  <%= render 'layouts/footer' %>
-</body>
+  <body>
+    <%= render 'shared/navigation' %>
+    <div class="container">
+        <%= flash_messages %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
+  </body>
 </html>

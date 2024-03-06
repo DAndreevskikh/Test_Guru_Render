@@ -1,14 +1,23 @@
-<%= flash_message(:notice) %>
-<%= flash_message(:alert) %>
-
-<% if user_signed_in? %>
-  <div class="nav user">
-    Привет, <%= current_user.name %> <%= link_to 'Guru', root_path %>!
-    <%= link_to 'Выход', destroy_user_session_path, method: :delete, data: { confirm: 'Вы уверены?' } %>
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <div class="container-fluid">
+    <h1><%= link_to 'TestGuru', root_path, class: 'navbar-brand' %></h1>
+    <span class="navbar-text">
+      <% if user_signed_in? %>
+      <div class="ml-auto d-flex align-items-center">
+        <span class="navbar-text">
+          Привет, <b><%= current_user.name %>|</b>
+          </span>
+          <% if current_user.is_a?(Admin) %>
+            <%= link_to "Админка", admin_tests_path, class: 'text-decoration-none' %> |
+          <% end %>
+          <%= link_to 'Выход', destroy_user_session_path, method: :delete, data: { confirm: 'Вы уверены' }, class: 'btn btn-outline-danger btn-sm' %>
+        </div>
+      <% else %>
+        <p class="nav user">
+         <%= link_to 'Регистрация', new_user_registration_path, class: 'nav-item nav-link' %>
+         <%= link_to 'Вход', new_user_session_path, class: 'nav-item nav-link' %>
+        </p>
+      <% end %>
+    </span>
   </div>
-<% else %>
-  <p class="nav user">
-    <%= link_to 'Регистрация', new_user_registration_path %> |
-    <%= link_to 'Вход', new_user_session_path %>
-  </p>
-<% end %>
+</nav>

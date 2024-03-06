@@ -1,0 +1,28 @@
+@import "~bootstrap/scss/bootstrap";
+
+.table-centered td,
+.table-centered th {
+  text-align: center;
+}
+
+.answer-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-check {
+  width: 300px;
+}
+
+.flash-messages-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.alert {
+  display: inline-block; 
+  padding: 10px;
+}
