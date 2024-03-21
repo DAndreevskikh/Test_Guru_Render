@@ -16,7 +16,7 @@ module ApplicationHelper
   def flash_messages
   content_tag(:div, class: "flash-messages-container") do
     flash.map do |type, message|
-      content_tag(:div, message, class: "#{FLASH_CLASSES[type.to_sym] || 'alert'} alert-dismissible fade show", role: 'alert')
+      content_tag(:div, message.html_safe, class: "#{FLASH_CLASSES[type.to_sym] || 'alert'} alert-dismissible fade show", role: 'alert')
     end.join.html_safe
   end
  end
