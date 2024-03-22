@@ -273,7 +273,6 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise (~> 4.0)
   dotenv-rails
-  faraday
   jbuilder (~> 2.7)
   jquery-rails
   letter_opener
