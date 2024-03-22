@@ -45,6 +45,8 @@ en:
     gist:
       success: "Gist was successfully created!"
       failure: "An error occurred while saving gist"
+    show:
+      no_answer: "No answer selected"
 
   services:
     gist_question_service:

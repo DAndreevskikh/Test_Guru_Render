@@ -47,6 +47,8 @@ ru:
     gist:
       success: "Gist успешно сохранён!"
       failure: "Во время сохранения gist произошла ошибка"
+    show:
+      no_answer: "Ответ не выбран"  
       
   services:
     gist_question_service:
