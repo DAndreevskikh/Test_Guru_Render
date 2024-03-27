@@ -8,6 +8,7 @@
 .rubocop.yml
 Gemfile
 Gemfile.lock
+.env
 
 # Ignore bundler config.
 /.bundle

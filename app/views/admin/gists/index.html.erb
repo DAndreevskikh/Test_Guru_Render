@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col col-md-10">
+      <h1><%= t('admin.gists.header') %></h1>
+
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th><%= t('admin.gists.email') %></th>
+            <th><%= t('admin.gists.question') %></th>
+            <th><%= t('admin.gists.gist_url') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @gists.each do |gist| %>
+            <tr>
+              <td><%= gist.user.email %></td>
+              <td><%= link_to gist.question.body.truncate(25), admin_question_path(gist.question), target: '_blank' %></td>
+              <td><%= link_to gist.url, gist.url, target: '_blank' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
