@@ -4,41 +4,46 @@
   
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name, 'Псевдоним' %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :name, 'Псевдоним' %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :first_name, 'Имя' %><br />
-    <%= f.text_field :first_name, autocomplete: true %>
-  </div>
+      <div class="field">
+        <%= f.label :first_name, 'Имя' %><br />
+        <%= f.text_field :first_name, autocomplete: true, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :last_name, 'Фамилия' %><br />
-    <%= f.text_field :last_name, autocomplete: true %>
-  </div>
+      <div class="field">
+        <%= f.label :last_name, 'Фамилия' %><br />
+        <%= f.text_field :last_name, autocomplete: true, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-      <em>(минимум <%= @minimum_password_length %> символов)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em>(минимум <%= @minimum_password_length %> символов)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control pass' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control conf-pass' %>
+        <span class="password-match-indicator"></span>
+      </div>
+    </div>
   </div>
 
   <div class="actions">
-    <%= f.submit "Зарегистрироваться" %>
+    <%= f.submit "Зарегистрироваться", class: 'btn btn-primary' %>
   </div>
 <% end %>
 

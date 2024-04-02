@@ -1,4 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
+@import "typography/icons";
+@import "global";
 
 .table-centered td,
 .table-centered th {
@@ -25,4 +27,8 @@
 .alert {
   display: inline-block; 
   padding: 10px;
+}
+
+.octicon-arrow-up, .octicon-arrow-down {
+  position: absolute;
 }

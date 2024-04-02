@@ -23,3 +23,6 @@ import "../stylesheets/application"
 
 import Popper from '@popperjs/core';
 window.Popper = Popper;
+
+import "../utilities/sorting"
+import "../utilities/password_confirmation.js"
