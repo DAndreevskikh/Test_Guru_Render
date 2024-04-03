@@ -93,6 +93,8 @@ ru:
         title: "Название"
         actions: "Действия"
         new_question: "Новый Вопрос"
+      form_inline:
+        submit: "Ок"  
 
     answers:
       show:
