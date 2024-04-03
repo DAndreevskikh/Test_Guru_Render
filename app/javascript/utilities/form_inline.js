@@ -1,9 +1,9 @@
 document.addEventListener('turbolinks:load', function() {
   $('.form-inline-link').on('click', formInlineLinkHandler);
 
-  var errors = document.querySelector('.resource-errors');
+  const errors = document.querySelector('.resource-errors');
   if (errors) {
-    var resourceId = errors.dataset.resourceId;
+    const resourceId = errors.dataset.resourceId;
     formInlineHandler(resourceId);
   }
 });
@@ -11,21 +11,21 @@ document.addEventListener('turbolinks:load', function() {
 function formInlineLinkHandler(event) {
   event.preventDefault();
 
-  var testId = this.dataset.testId;
+  const testId = this.dataset.testId;
   formInlineHandler(testId);
 }
 
 function formInlineHandler(testId) {
-  var $link = $('[data-test-id="' + testId + '"].form-inline-link');
-  var $testTitle = $('.test-title[data-test-id="' + testId + '"]');
-  var $formInline = $('.form-inline[data-test-id="' + testId + '"]');
+  const $link = $(`[data-test-id="${testId}"].form-inline-link`);
+  const $testTitle = $(`.test-title[data-test-id="${testId}"]`);
+  const $formInline = $(`.form-inline[data-test-id="${testId}"]`);
 
   $formInline.toggle();
   $testTitle.toggle();
 
-  var isVisible = $formInline.is(':visible');
-  var editText = $link.data('editText');
-  var cancelText = $link.data('cancelText');
+  const isVisible = $formInline.is(':visible');
+  const editText = $link.data('editText');
+  const cancelText = $link.data('cancelText');
 
   $link.text(isVisible ? cancelText : editText);
 }
