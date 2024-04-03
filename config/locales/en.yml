@@ -91,6 +91,8 @@ en:
         title: "Title"
         actions: "Actions"
         new_question: "New Question"
+      form_inline:
+        submit: "Ok"    
 
     answers:
       show:
