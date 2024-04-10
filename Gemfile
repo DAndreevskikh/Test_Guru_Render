@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 gem 'devise', '~> 4.0'
+gem 'pg'
 #LOCALIZATION
 
 gem 'rails-i18n', '~> 6.0'
