@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "dokku": {
+      "predeploy": "bundle install && bundle add pg"
+    }
+  }
+}
