@@ -21,7 +21,7 @@ window.jQuery = $;
 window.$ = $;
 import "../stylesheets/application"
 
-import Popper from '@popperjs/core';
+import { createPopper } from '@popperjs/core';
 window.Popper = Popper;
 
 import "../utilities/sorting"
