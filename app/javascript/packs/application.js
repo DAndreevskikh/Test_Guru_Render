@@ -22,7 +22,7 @@ window.$ = $;
 import "../stylesheets/application"
 
 import { createPopper } from '@popperjs/core';
-window.Popper = createPopper;
+window.Popper = Popper;
 
 import "../utilities/sorting"
 import "../utilities/password_confirmation.js"
