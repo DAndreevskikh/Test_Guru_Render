@@ -3,19 +3,21 @@
     <h1><%= link_to 'TestGuru', root_path, class: 'navbar-brand' %></h1>
     <span class="navbar-text">
       <% if user_signed_in? %>
-      <div class="ml-auto d-flex align-items-center">
-        <span class="navbar-text">
-          Привет, <b><%= current_user.name %>|</b>
+        <div class="ml-auto d-flex align-items-center">
+          <span class="navbar-text">
+            Привет, <b><%= current_user.name %></b> |
           </span>
           <% if current_user.is_a?(Admin) %>
             <%= link_to "Админка", admin_tests_path, class: 'text-decoration-none' %> |
+          <% else %>
+          <%= link_to 'Обратная связь', '#', class: 'feedback-button btn btn-outline-secondary btn-sm' %>
           <% end %>
-          <%= link_to 'Выход', destroy_user_session_path, method: :delete, data: { confirm: 'Вы уверены' }, class: 'btn btn-outline-danger btn-sm' %>
+          <%= link_to 'Выход', destroy_user_session_path, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-outline-danger btn-sm' %>
         </div>
       <% else %>
         <p class="nav user">
-         <%= link_to 'Регистрация', new_user_registration_path, class: 'nav-item nav-link' %>
-         <%= link_to 'Вход', new_user_session_path, class: 'nav-item nav-link' %>
+          <%= link_to 'Регистрация', new_user_registration_path, class: 'nav-item nav-link' %>
+          <%= link_to 'Вход', new_user_session_path, class: 'nav-item nav-link' %>
         </p>
       <% end %>
     </span>
