@@ -1,0 +1,20 @@
+<%= form_with model: feedback, url: feedbacks_path, local: true do |form| %>
+  <div>
+    <%= form.label :name, "Ваше имя:" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :email, "Ваш email:" %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :message, "Сообщение:" %>
+    <%= form.text_area :message %>
+  </div>
+
+  <div>
+    <%= form.submit "Отправить" %>
+  </div>
+<% end %>
