@@ -32,3 +32,25 @@
 .octicon-arrow-up, .octicon-arrow-down {
   position: absolute;
 }
+
+.modal-feedback {
+  display: none;
+  position: fixed;
+  top: 65px; 
+  right: 20px;
+  width: 300px;
+  padding: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  z-index: 1050; 
+}
+
+.modal-feedback.open {
+  display: block;
+}
+
+.form-container {
+  margin-bottom: 250px; 
+}

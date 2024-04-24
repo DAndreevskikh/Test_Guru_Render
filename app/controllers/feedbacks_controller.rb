@@ -7,9 +7,9 @@ class FeedbacksController < ApplicationController
 
   def create
     @feedback = Feedback.new(feedback_params)
-    if @feedback.valid?
+    if @feedback.save
       FeedbackMailer.feedback_email(@feedback, @admin_email).deliver_now
-      redirect_to root_path, notice: 'Ваше сообщение успешно отправлено.'
+      redirect_back(fallback_location: root_path, notice: "Спасибо за ваше сообщение!")
     else
       render :new
     end
@@ -22,6 +22,8 @@ class FeedbacksController < ApplicationController
   end
 
   def set_admin_email
-    @admin_email = User.find_by(admin: true).email
+    admin = User.find_by(type: 'Admin')
+    @admin_email = admin.email if admin
   end
 end
+

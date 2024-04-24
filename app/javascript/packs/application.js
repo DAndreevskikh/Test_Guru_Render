@@ -1,8 +1,3 @@
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
-
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
@@ -16,6 +11,10 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 import 'bootstrap'
+
+import * as bootstrap from 'bootstrap';
+window.bootstrap = bootstrap;
+console.log(bootstrap);
 import $ from 'jquery'
 window.jQuery = $;
 window.$ = $;
@@ -24,7 +23,8 @@ import "../stylesheets/application"
 import { createPopper } from '@popperjs/core';
 window.Popper = Popper;
 
-import "../utilities/sorting"
+import "../utilities/sorting.js"
 import "../utilities/password_confirmation.js"
 import "../utilities/form_inline.js"
 import "../utilities/progress_bar.js"
+import "../packs/feedback_modal.js"
