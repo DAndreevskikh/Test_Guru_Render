@@ -26,3 +26,4 @@ class FeedbacksController < ApplicationController
     @admin_email = admin.email if admin
   end
 end
+
