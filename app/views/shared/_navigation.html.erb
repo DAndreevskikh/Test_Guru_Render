@@ -10,7 +10,7 @@
           <% if current_user.is_a?(Admin) %>
             <%= link_to "Админка", admin_tests_path, class: 'text-decoration-none' %> |
           <% else %>
-            <%= link_to 'Обратная связь', new_feedback_path, class: 'text-decoration-none' %> |
+            <%= link_to 'Обратная связь', new_feedbacks_path, class: 'text-decoration-none' %> |
           <% end %>
           <%= link_to 'Выход', destroy_user_session_path, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-outline-danger btn-sm' %>
         </div>
