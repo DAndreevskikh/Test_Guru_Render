@@ -21,7 +21,7 @@ window.$ = $;
 import "../stylesheets/application"
 
 import { createPopper } from '@popperjs/core';
-window.Popper = Popper;
+window.Popper = createPopper;
 
 import "../utilities/sorting.js"
 import "../utilities/password_confirmation.js"
