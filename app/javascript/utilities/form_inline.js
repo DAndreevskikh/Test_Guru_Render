@@ -5,25 +5,21 @@ document.addEventListener('turbolinks:load', function() {
 function setupFormInlineLinks() {
   $('.form-inline-link').on('click', formInlineLinkHandler);
 
-  $('form.form-inline').on('ajax:success', function(event) {
-    location.reload();  
-  }).on('ajax:error', function(event, xhr, status, error) {
-    handleErrors(xhr.responseJSON, $(this));
-  });
-
   $('form.form-inline').on('submit', function(event) {
-    event.preventDefault(); 
+    event.preventDefault();
 
     const titleField = $(this).find('input[name="test[title]"]');
     const titleValue = titleField.val().trim();
+    removePreviousErrors(titleField);
+
     if (titleValue === '') {
       const errorMessage = "Поле не может быть пустым";
-      removePreviousErrors(titleField); 
-      titleField.after(`<div class="alert alert-danger">${errorMessage}</div>`);
-      return false; 
+      titleField.attr('placeholder', errorMessage);
+      titleField.addClass('is-invalid');
+      return;  
     }
 
-    $(this).off('submit').submit();
+    alert('Form is valid and can be submitted!'); 
   });
 }
 
@@ -38,14 +34,13 @@ function formInlineHandler(testId) {
   const $testTitle = $(`.test-title[data-test-id="${testId}"]`);
   const $formInline = $(`.form-inline[data-test-id="${testId}"]`);
 
-  clearFormErrors($formInline);
-
   $formInline.toggle();
   $testTitle.toggle();
 
   if ($formInline.is(':visible')) {
     const title = $testTitle.text();
-    $formInline.find('input[type="text"]').val(title).removeClass('is-invalid').next('.alert-danger').remove();
+    $formInline.find('input[type="text"]').val(title).removeClass('is-invalid');
+    clearFormErrors($formInline);
   }
 
   updateLinkText($link, $formInline.is(':visible'));
@@ -58,10 +53,11 @@ function updateLinkText($link, isVisible) {
 }
 
 function clearFormErrors($form) {
-  $form.find('.alert-danger').remove(); 
-  $form.find('.is-invalid').removeClass('is-invalid'); 
+  $form.find('input').each(function() {
+    $(this).removeClass('is-invalid').attr('placeholder', '');
+  });
 }
 
-function removePreviousErrors(titleField) {
-  titleField.parent().find('.alert-danger').remove();
+function removePreviousErrors(inputField) {
+  inputField.removeClass('is-invalid').attr('placeholder', '');
 }
