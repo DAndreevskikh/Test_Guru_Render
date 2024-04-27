@@ -1,52 +1,45 @@
-<div class="form-container">
-<h2>Регистрация</h2>
+<div class="form-container container my-3">
+  <h2 class="text-center">Регистрация</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="row justify-content-center">
+      <div class="col-sm-8 col-md-6 col-lg-4 text-center">
+        <div class="field">
+          <%= f.label :name, 'Псевдоним' %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control', id: 'name' %>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="field">
+          <%= f.label :first_name, 'Имя' %><br />
+          <%= f.text_field :first_name, autocomplete: "name", class: 'form-control', id: 'first_name' %>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="field">
+          <%= f.label :last_name, 'Фамилия' %><br />
+          <%= f.text_field :last_name, autocomplete: "name", class: 'form-control', id: 'last_name' %>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="field">
+          <%= f.label :email, 'Электронная почта' %><br />
+          <%= f.email_field :email, autocomplete: "email", class: 'form-control', id: 'email' %>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="field">
+          <%= f.label :password, 'Пароль' %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: 'form-control pass', id: 'password' %>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="field">
+          <%= f.label :password_confirmation, 'Подтверждение пароля' %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control conf-pass', id: 'password_confirmation' %>
+          <span class="password-match-indicator"></span>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="actions mt-3">
+          <%= f.submit "Зарегистрироваться", class: 'btn btn-primary' %>
+        </div>
+  <% end %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="row">
-    <div class="col-md-3">
-      <div class="field">
-        <%= f.label :name, 'Псевдоним' %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
-      </div>
-
-      <div class="field">
-        <%= f.label :first_name, 'Имя' %><br />
-        <%= f.text_field :first_name, autocomplete: true, class: 'form-control' %>
-      </div>
-
-      <div class="field">
-        <%= f.label :last_name, 'Фамилия' %><br />
-        <%= f.text_field :last_name, autocomplete: true, class: 'form-control' %>
-      </div>
-
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-          <em>(минимум <%= @minimum_password_length %> символов)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control pass' %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control conf-pass' %>
-        <span class="password-match-indicator"></span>
-      </div>
-    </div>
+  <%= render "devise/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Зарегистрироваться", class: 'btn btn-primary' %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+ </div>
 </div>

@@ -22,7 +22,7 @@
   
 
   <div class="modal-feedback" style="display: none;">
-    <%= render 'feedbacks/new' %>
+    <%= render 'feedbacks/form', feedback: @feedback %> 
   </div>
 
   <%= javascript_pack_tag 'feedback_modal', "data-turbolinks-track": "reload" %>
