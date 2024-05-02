@@ -60,7 +60,7 @@ en:
       count: "Number of Tests"
       author: "Author"
       questions_count: "Number of Questions"
-      actions: "Actions"    
+      actions: "Actions"  
 
   admin:
     tests:
