@@ -1,14 +1,14 @@
 class FeedbacksController < ApplicationController
-  before_action :set_admin_email, only: [:create]
+  before_action :authenticate_user!, only: [:create]
 
   def new
     @feedback = Feedback.new
   end
 
   def create
-    @feedback = Feedback.new(feedback_params)
+    @feedback = current_user.feedbacks.build(feedback_params)
     if @feedback.save
-      FeedbackMailer.feedback_email(@feedback, @admin_email).deliver_now
+      send_feedback_email
       redirect_back(fallback_location: root_path, notice: "Спасибо за ваше сообщение!")
     else
       render :new
@@ -21,9 +21,9 @@ class FeedbacksController < ApplicationController
     params.require(:feedback).permit(:name, :email, :message)
   end
 
-  def set_admin_email
-    admin = User.find_by(type: 'Admin')
-    @admin_email = admin.email if admin
+  def send_feedback_email
+    admin_email = User.find_by(type: 'Admin')&.email
+    FeedbackMailer.feedback_email(@feedback, admin_email).deliver_now if admin_email
   end
 end
 
