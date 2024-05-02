@@ -7,8 +7,7 @@ Rails.application.routes.draw do
       get :start, on: :member
     end
 
-    get 'feedback', to: 'feedbacks#new', as: :new_feedback
-    post 'feedback', to: 'feedbacks#create', as: :feedbacks 
+    resources :feedbacks, only: [:new, :create]
 
     resources :test_passages, only: %i[show update] do
       get :result, on: :member
