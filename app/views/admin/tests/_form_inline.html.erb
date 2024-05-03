@@ -1,12 +1,13 @@
 <%= form_with model: [:admin, test], 
               url: update_inline_admin_test_path(test), 
-              local: true, 
+              local: false, 
               class: 'form-inline',
               html: { style: 'display: none'},
               data: { test_id: test.id } do |form| %>
   <div class="d-flex align-items-center">
     <div class="form-group">
       <%= form.text_field :title, class: 'form-control' %>
+      <div class="form-errors" style="color: red;"></div> 
     </div>
     <span style="width: 16px; display: inline-block;"></span>
     <div class="form-group">
