@@ -1,0 +1,44 @@
+<h1 class="text-center">Награды</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Название</th>
+      <th>Изображение</th>
+      <th>Правило</th>
+      <th>Детали</th>
+      <th>Действия</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @badges.each do |badge| %>
+      <tr>
+        <td><%= badge.title %></td>
+        <td>
+          <%= image_tag(badge.display_image, size: '50x50') if badge.display_image.present? %>
+        </td>
+        <td><%= Badge::BADGE_RULES.key(badge.rule.to_sym) %></td>
+        <td>
+          <% if badge.rule == 'category_complete' %>
+            <%= "Категория: #{Category.find(badge.rule_value).name}" %>
+          <% elsif badge.rule == 'first_try' %>
+            <%= "Тест: #{Test.find(badge.rule_value).title}" %>
+          <% elsif badge.rule == 'level_complete' %>
+            <%= "Уровень: #{badge.rule_value}" %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to t('show'), admin_badge_url(badge), class: 'btn btn-primary btn-sm' %>
+          <%= link_to t('edit'), edit_admin_badge_url(badge), class: 'btn btn-secondary btn-sm' %>
+          <%= link_to t('delete'), admin_badge_url(badge),
+                      method: :delete, data: { confirm: t('confirmations.are_you_sure') },
+                      class: 'btn btn-danger btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <%= link_to 'Новая награда', new_admin_badge_path, class: 'btn btn-success' %>
+</div>
