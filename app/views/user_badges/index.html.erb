@@ -1,0 +1,30 @@
+<h1 class="center-text">Мои награды</h1>
+
+<div>
+  <% if @user_badges.empty? %>
+    <p class="center-text">У вас пока нет наград</p>
+  <% else %>
+    <table class="badges-table">
+      <thead>
+        <tr>
+          <th>Изображение</th>
+          <th>Название</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user_badges.each do |user_badge| %>
+          <% if user_badge.badge.present? %>
+            <tr>
+              <td>
+                <%= image_tag user_badge.display_image, class: 'badge-image' %>
+              </td>
+              <td>
+                <%= user_badge.display_title %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

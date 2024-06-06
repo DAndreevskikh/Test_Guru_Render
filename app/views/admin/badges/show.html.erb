@@ -1,0 +1,23 @@
+<h1 class="text-center">Награда</h1>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Название</th>
+    <td><%= @badge.title %></td>
+  </tr>
+  <tr>
+    <th>Изображение</th>
+    <td>
+      <%= image_tag(@badge.display_image, size: '100x100') if @badge.display_image.present? %>
+    </td>
+  </tr>
+  <tr>
+    <th>Правило</th>
+    <td><%= Badge::BADGE_RULES.key(@badge.rule.to_sym) %></td>
+  </tr>
+</table>
+
+<div class="text-center">
+  <%= link_to t('edit'), edit_admin_badge_path(@badge), class: 'btn btn-primary' %>
+  <%= link_to t('back'), admin_badges_path, class: 'btn btn-secondary' %>
+</div>

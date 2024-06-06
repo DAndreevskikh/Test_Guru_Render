@@ -50,3 +50,63 @@
 .modal-feedback.open {
   display: block;
 }
+
+.badges-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.badges-table th, .badges-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.badges-table th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.badges-table td {
+  text-align: center;
+}
+
+.badge-image {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.alert-info {
+  border: 1px solid #b8daff;
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+.badge-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.badge-image-container {
+  margin: 0 auto;
+}
+
+.alert-heading {
+  margin-bottom: 20px;
+}
+
+.alert-info .badge-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alert-success {
+  margin-bottom: 20px;
+}
