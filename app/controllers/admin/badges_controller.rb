@@ -1,8 +1,9 @@
 class Admin::BadgesController < Admin::BaseController
   before_action :set_badge, only: %i[show edit update destroy]
-  before_action :set_badges, only: :index
 
-  def index; end
+  def index
+    @badges = Badge.all
+  end
 
   def show; end
 
@@ -13,18 +14,17 @@ class Admin::BadgesController < Admin::BaseController
   def create
     @badge = Badge.new(badge_params)
     if @badge.save
-      redirect_to admin_badge_url(@badge), notice: 'Награда успешно создана!'
+      redirect_to admin_badge_url(@badge), notice: t('admin.badges.create.success')
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @badge.update(badge_params)
-      redirect_to admin_badge_url(@badge), notice: 'Награда успешно обновлена!'
+      redirect_to admin_badge_url(@badge), notice: t('admin.badges.update.success')
     else
       render :edit
     end
@@ -32,17 +32,13 @@ class Admin::BadgesController < Admin::BaseController
 
   def destroy
     @badge.destroy
-    redirect_to admin_badges_url, notice: 'Награда удалена'
+    redirect_to admin_badges_url, notice: t('admin.badges.destroy.success')
   end
 
   private
 
   def set_badge
     @badge = Badge.find(params[:id])
-  end
-
-  def set_badges
-    @badges = Badge.all
   end
 
   def badge_params

@@ -95,6 +95,13 @@ ru:
         new_question: "Новый Вопрос"
       form_inline:
         submit: "Ок"  
+    badges:
+      create:
+        success: "Награда успешно создана!"
+      update:
+        success: "Награда успешно обновлена!"
+      destroy:
+        success: "Награда удалена"    
 
     answers:
       show:
