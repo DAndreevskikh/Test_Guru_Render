@@ -6,13 +6,18 @@ class TestPassagesController < ApplicationController
 
   def show; end
 
-  def result; end
-
+  def result
+    @awarded_badge = BadgeIssuanceService.new(@test_passage).call if @test_passage.success?
+  end
+  
   def update
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
-      TestsMailer.completed_test(@test_passage).deliver_now
+      if @test_passage.success?
+        @awarded_badge = BadgeIssuanceService.new(@test_passage).call
+        TestsMailer.completed_test(@test_passage).deliver_now
+      end
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show

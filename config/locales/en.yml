@@ -92,7 +92,14 @@ en:
         actions: "Actions"
         new_question: "New Question"
       form_inline:
-        submit: "Ok"    
+        submit: "Ok"
+    badges:
+      create:
+        success: "Badge successfully created!"
+      update:
+        success: "Badge successfully updated!"
+      destroy:
+        success: "Badge successfully deleted!"        
 
     answers:
       show:
