@@ -43,3 +43,4 @@ document.addEventListener('turbolinks:load', function() {
   ruleSelect.addEventListener('change', handleRuleChange);
   handleRuleChange();
 });
+
